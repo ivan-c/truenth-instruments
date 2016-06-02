@@ -12,8 +12,7 @@ INSERT INTO `projects_questionnaires` (`project_id`, `questionnaire_id`, `Sequen
 (@project_id, @questionnaire_id, 5);
 
 
-INSERT INTO `pages` (`questionnaire_id`, `Title`, `Title_es_MX`, `Header`, `Header_es_MX`, `BodyText`, `BodyText_es_MX`, `NavigationType`, `TargetType`, `ProgressType`, `LayoutType`, `Sequence`, `iterable`) VALUES 
-(@questionnaire_id,'EPIC-0',NULL,'EPIC-26<br/>The Expanded Prostate Cancer Index Composite<br/>Short Form',NULL,'<p>This questionnaire is designed to measure Quality of Life issues in patients with Prostate cancer. To help us get the most accurate measurement, it is important that you answer all questions honestly and completely.</p>\n<p>Remember, as with all medical records, information contained within this survey will remain strictly confidential.</p>',NULL,'prev-next',NULL,'graphical','basic',1,NULL),
+INSERT INTO `pages` (`questionnaire_id`, `Title`, `Title_es_MX`, `Header`, `Header_es_MX`, `BodyText`, `BodyText_es_MX`, `NavigationType`, `TargetType`, `ProgressType`, `LayoutType`, `Sequence`, `iterable`) VALUES
 (@questionnaire_id,'EPIC-1',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',2,NULL),
 (@questionnaire_id,'EPIC-2',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',3,NULL),
 (@questionnaire_id,'EPIC-3',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',4,NULL),
@@ -26,8 +25,10 @@ INSERT INTO `pages` (`questionnaire_id`, `Title`, `Title_es_MX`, `Header`, `Head
 (@questionnaire_id,'EPIC-10',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',11,NULL),
 (@questionnaire_id,'EPIC-11',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',12,NULL),
 (@questionnaire_id,'EPIC-12',NULL,NULL,NULL,NULL,NULL,'prev-next',NULL,'graphical','basic',13,NULL),
-(@questionnaire_id,'EPIC-13',NULL,NULL,NULL,'13. How big a problem <strong>during the last 4 weeks</strong>, if any, has each of the following been for you?',NULL,'prev-next',NULL,'graphical','basic',14,NULL);
-SELECT LAST_INSERT_ID() - 13 INTO @page_id;
+(@questionnaire_id,'EPIC-13',NULL,NULL,NULL,'13. How big a problem <strong>during the last 4 weeks</strong>, if any, has each of the following been for you?',NULL,'prev-next',NULL,'graphical','basic',14,NULL),
+(@questionnaire_id,'EPIC-0',NULL,'EPIC-26<br/>The Expanded Prostate Cancer Index Composite<br/>Short Form',NULL,'<p>This questionnaire is designed to measure Quality of Life issues in patients with Prostate cancer. To help us get the most accurate measurement, it is important that you answer all questions honestly and completely.</p>\n<p>Remember, as with all medical records, information contained within this survey will remain strictly confidential.</p>',NULL,'prev-next',NULL,'graphical','basic',1,NULL)
+;
+SELECT LAST_INSERT_ID() INTO @page_id;
 
 INSERT INTO `questions` (`page_id`, `ShortTitle`, `ShortTitle_es_MX`, `BodyText`, `BodyText_es_MX`, `BodyTextPosition`, `Orientation`, `Groups`, `Style`, `Sequence`, `has_conditional_options`, `ignore_skipped`, `num_user_controlled`, `cross_session`, `RangeLeft`, `RangeLeft_es_MX`, `RangeRight`, `RangeRight_es_MX`) VALUES 
 (@page_id,NULL,NULL,'1. Over the <strong>past 4 weeks</strong>, how often have you leaked urine?',NULL,'left','vertical',1,'normal',1,0,0,0,0,NULL,NULL,NULL,NULL),
@@ -56,7 +57,7 @@ INSERT INTO `questions` (`page_id`, `ShortTitle`, `ShortTitle_es_MX`, `BodyText`
 (@page_id + 12,NULL,NULL,'c. Feeling depressed',NULL,'left','matrix',1,'normal',24,0,0,0,0,NULL,NULL,NULL,NULL),
 (@page_id + 12,NULL,NULL,'d. Lack of energy',NULL,'left','matrix',1,'normal',25,0,0,0,0,NULL,NULL,NULL,NULL),
 (@page_id + 12,NULL,NULL,'e. Change in body weight',NULL,'left','matrix-bottom',1,'normal',26,0,0,0,0,NULL,NULL,NULL,NULL);
-SELECT LAST_INSERT_ID() - 25 INTO @question_id;
+SELECT LAST_INSERT_ID() INTO @question_id;
 
 
 INSERT INTO `options` (`question_id`, `OptionType`, `Height`, `Width`, `MaxCharacters`, `AnalysisValue`, `ValueRestriction`, `BodyText`, `BodyText_es_MX`, `BodyTextType`, `AncillaryText`, `Sequence`) VALUES 
@@ -187,3 +188,103 @@ INSERT INTO `options` (`question_id`, `OptionType`, `Height`, `Width`, `MaxChara
 (@question_id + 25,'radio',0,0,NULL,'2',NULL,'2',NULL,'visible',NULL,3),
 (@question_id + 25,'radio',0,0,NULL,'3',NULL,'3',NULL,'visible',NULL,4),
 (@question_id + 25,'radio',0,0,NULL,'4',NULL,'4',NULL,'visible',NULL,5);
+
+INSERT INTO `scales` (`invert`, `combination`, `questionnaire_id`, `range`, `name`, `order`, `base`, `critical`) VALUES 
+(NULL,NULL,@questionnaire_id,NULL,'EPIC-26',0,1,NULL),
+
+-- from original p3p
+(NULL,NULL,@questionnaire_id,NULL,'Influential Factors - Symptoms (EPIC Short Form)',2,NULL,NULL),
+(NULL,'sum_or_any_null',@questionnaire_id,NULL,'EPIC-CP',0,NULL,NULL)
+;
+SELECT LAST_INSERT_ID() INTO @scale_id;
+
+
+INSERT INTO `subscales` (`scale_id`, `range`, `invert`, `base`, `critical`, `combination`, `name`, `internal_note`, `order`, `category_id`) VALUES 
+(@scale_id,100,0,0,0,'mean_or_fifth_null','Urinary Incontinence',NULL,0,NULL),
+(@scale_id,100,0,0,0,'mean_or_fifth_null','Urinary Irritation/Obstruction',NULL,0,NULL),
+(@scale_id,100,0,0,0,'mean_or_fifth_null','Bowel',NULL,0,NULL),
+(@scale_id,100,0,0,0,'mean_or_fifth_null','Sexual',NULL,0,NULL),
+(@scale_id,100,0,0,0,'mean_or_fifth_null','Vitality/Hormonal',NULL,0,NULL),
+(@scale_id,100,0,0,0,'not_null','Urinary Bother',NULL,0,NULL),
+(@scale_id,100,0,0,0,'not_null','Bowel Bother',NULL,0,NULL),
+(@scale_id,100,0,0,0,'not_null','Sexual Bother',NULL,0,NULL),
+
+-- from original p3p
+(@scale_id + 1,5,0,1,3,'mean_or_all_null','Current Symptoms',NULL,1,NULL),
+
+(@scale_id + 2,12,0,0,0,'sum_or_any_null','Urinary Incontinence Symptom Score',NULL,0,NULL),
+(@scale_id + 2,12,0,0,0,'sum_or_any_null','Urinary Irritation/Obstruction Symptom Score',NULL,0,NULL),
+(@scale_id + 2,12,0,0,0,'sum_or_any_null','Bowel Symptom Score',NULL,0,NULL),
+(@scale_id + 2,12,0,0,0,'sum_or_any_null','Sexual Symptom Score',NULL,0,NULL),
+(@scale_id + 2,12,0,0,0,'sum_or_any_null','Vitality/Hormonal Symptom Score',NULL,0,NULL)
+;
+SELECT LAST_INSERT_ID() INTO @subscale_id;
+
+
+INSERT INTO `items` (`name`, `name_es_MX`, `question_id`, `subscale_id`, `base`, `range`, `critical`, `sequence`) VALUES 
+('1. Over the <strong>past 4 weeks</strong>, how often have you leaked urine?','',@question_id,@subscale_id,1,4,NULL,NULL),
+('2. Which of the following best describes your urinary control <strong>during the last 4 weeks</strong>?','',@question_id + 1,@subscale_id,1,3,NULL,NULL),
+('3. How many pads or adult diapers per day did you usually use to control leakage <strong>during the last 4 weeks</strong>?','',@question_id + 2,@subscale_id,0,3,NULL,NULL),
+('a. Dripping or leaking urine','',@question_id + 3,@subscale_id,0,4,NULL,NULL),
+('b. Pain or burning on urination','',@question_id + 4,@subscale_id + 1,0,4,NULL,NULL),
+('c. Bleeding with urination','',@question_id + 5,@subscale_id + 1,0,4,NULL,NULL),
+('d. Weak urine stream or incomplete emptying','',@question_id + 6,@subscale_id + 1,0,4,NULL,NULL),
+('e. Need to urinate frequently during the day','',@question_id + 7,@subscale_id + 1,0,4,NULL,NULL),
+('Urinary Bother','',@question_id + 8,@subscale_id + 5,1,4,NULL,NULL),
+('a. Urgency to have a bowel movement','',@question_id + 9,@subscale_id + 2,0,4,NULL,NULL),
+('b. Increased frequency of bowel movements','',@question_id + 10,@subscale_id + 2,0,4,NULL,NULL),
+('c. Losing control of your stools','',@question_id + 11,@subscale_id + 2,0,4,NULL,NULL),
+('d. Blood stools','',@question_id + 12,@subscale_id + 2,0,4,NULL,NULL),
+('e. Abdominal / Pelvic / Rectal Pain','',@question_id + 13,@subscale_id + 2,0,4,NULL,NULL),
+('Bowel Bother','',@question_id + 14,@subscale_id + 6,1,4,NULL,NULL),
+('7. Overall, how big a problem have your bowel habits been for you <strong>during the past 4 weeks</strong>?','',@question_id + 14,@subscale_id + 2,1,4,NULL,NULL),
+('a. Your ability to have an erection?','',@question_id + 15,@subscale_id + 3,1,4,NULL,NULL),
+('b. Your ability to reach orgasm (climax)?','',@question_id + 16,@subscale_id + 3,1,4,NULL,NULL),
+('9. How would you describe the usual QUALITY of your erections <strong>during the last 4 weeks</strong>?','',@question_id + 17,@subscale_id + 3,1,3,NULL,NULL),
+('10. How would you describe the FREQUENCY of your erections <strong>during the last 4 weeks</strong>?','',@question_id + 18,@subscale_id + 3,1,4,NULL,NULL),
+('11. Overall, how would you rate your ability to function sexually <strong>during the last 4 weeks</strong>?','',@question_id + 19,@subscale_id + 3,1,4,NULL,NULL),
+('12. Overall, how big a problem has your sexual function or lack of sexual function been for you <strong>during the last 4 weeks<','',@question_id + 20,@subscale_id + 3,1,4,NULL,NULL),
+('Sexual Bother','',@question_id + 20,@subscale_id + 7,1,4,NULL,NULL),
+('a. Hot flashes','',@question_id + 21,@subscale_id + 4,0,4,NULL,NULL),
+('b. Breast tenderness / enlargement','',@question_id + 22,@subscale_id + 4,0,4,NULL,NULL),
+('c. Feeling depressed','',@question_id + 23,@subscale_id + 4,0,4,NULL,NULL),
+('d. Lack of energy','',@question_id + 24,@subscale_id + 4,0,4,NULL,NULL),
+('e. Change in body weight','',@question_id + 25,@subscale_id + 4,0,4,NULL,NULL),
+
+-- from original p3p id subscale_id=55 
+('Sexual','Síntomas sexuales',@question_id + 20,@subscale_id + 8,0,3,NULL,2),
+('Bladder','Síntomas de la Vejiga ',@question_id + 8,@subscale_id + 8,0,3,NULL,1),
+('Bowel','Síntomas de los Intestinos',@question_id + 14,@subscale_id + 8,0,3,NULL,3),
+
+('Dribbling','',@question_id + 1,@subscale_id + 9,0,NULL,2,NULL),
+('Pad use','',@question_id + 2,@subscale_id + 9,0,NULL,2,NULL),
+('Leaking','',@question_id + 3,@subscale_id + 9,0,NULL,3,NULL),
+
+('Pain/burning','',@question_id + 4,@subscale_id + 10,0,NULL,3,NULL),
+('Stream','',@question_id + 6,@subscale_id + 10,0,NULL,3,NULL),
+('Frequency','',@question_id + 7,@subscale_id + 10,0,NULL,3,NULL),
+
+-- combination of 2 items?
+-- ('Pain/urgency','',1895,@subscale_id + 11,0,NULL,3,NULL),
+('Rectal Pain','',@question_id + 13,@subscale_id + 11,0,NULL,3,NULL),
+('Bowel Urgency','',@question_id + 9,@subscale_id + 11,0,NULL,3,NULL),
+
+('Frequency','',@question_id + 10,@subscale_id + 11,0,NULL,3,NULL),
+('Overall problems','',@question_id + 14,@subscale_id + 11,0,NULL,3,NULL),
+
+('Orgasm ability','',@question_id + 16,@subscale_id + 12,0,NULL,3,NULL),
+('Erections','',@question_id + 17,@subscale_id + 12,0,NULL,2,NULL),
+('Overall function','',@question_id + 20,@subscale_id + 12,0,NULL,3,NULL),
+
+-- combination of 2 items?
+-- ('Hot flashes/breasts','',1902,@subscale_id + 13,0,NULL,3,NULL),
+('Hot flashes','',@question_id + 21,@subscale_id + 13,0,NULL,3,NULL),
+('Breast tenderness / enlargement','',@question_id + 22,@subscale_id + 13,0,NULL,3,NULL),
+
+
+('Feeling depressed','',@question_id + 23,@subscale_id + 13,0,NULL,3,NULL),
+('Lack of energy','',@question_id + 24,@subscale_id + 13,0,NULL,3,NULL)
+
+;
+
+update projects_questionnaires set questionnaire_id = @questionnaire_id where questionnaire_id=57 and project_id=3;
