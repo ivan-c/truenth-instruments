@@ -230,7 +230,7 @@ SELECT LAST_INSERT_ID() INTO @subscale_id;
 
 INSERT INTO `items` (`name`, `name_es_MX`, `question_id`, `subscale_id`, `base`, `range`, `critical`, `sequence`) VALUES
 -- EPIC item 23
-('1. Over the <strong>past 4 weeks</strong>, how often have you leaked urine?','',@question_id,@subscale_id,1,4,NULL,NULL),
+('Frequency','',@question_id,@subscale_id,1,4,NULL,NULL),
 -- EPIC item 26
 ('Dribbling','',@question_id + 1,@subscale_id,1,3,NULL,NULL),
 -- EPIC item 27
