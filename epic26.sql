@@ -232,67 +232,67 @@ INSERT INTO `items` (`name`, `name_es_MX`, `question_id`, `subscale_id`, `base`,
 -- EPIC item 23
 ('1. Over the <strong>past 4 weeks</strong>, how often have you leaked urine?','',@question_id,@subscale_id,1,4,NULL,NULL),
 -- EPIC item 26
-('2. Which of the following best describes your urinary control <strong>during the last 4 weeks</strong>?','',@question_id + 1,@subscale_id,1,3,NULL,NULL),
+('Dribbling','',@question_id + 1,@subscale_id,1,3,NULL,NULL),
 -- EPIC item 27
-('3. How many pads or adult diapers per day did you usually use to control leakage <strong>during the last 4 weeks</strong>?','',@question_id + 2,@subscale_id,3,3,NULL,NULL),
+('Pad use','',@question_id + 2,@subscale_id,3,3,NULL,NULL),
 -- EPIC item 28
-('a. Dripping or leaking urine','',@question_id + 3,@subscale_id,4,4,NULL,NULL),
+('Leaking ','',@question_id + 3,@subscale_id,4,4,NULL,NULL),
 
 -- EPIC item 29
-('b. Pain or burning on urination','',@question_id + 4,@subscale_id + 1,4,4,NULL,NULL),
+('Pain/burning','',@question_id + 4,@subscale_id + 1,4,4,NULL,NULL),
 -- EPIC item 30
-('c. Bleeding with urination','',@question_id + 5,@subscale_id + 1,4,4,NULL,NULL),
+('Bleeding ','',@question_id + 5,@subscale_id + 1,4,4,NULL,NULL),
 -- EPIC item 31
-('d. Weak urine stream or incomplete emptying','',@question_id + 6,@subscale_id + 1,4,4,NULL,NULL),
+('Stream','',@question_id + 6,@subscale_id + 1,4,4,NULL,NULL),
 -- EPIC item 33
-('e. Need to urinate frequently during the day','',@question_id + 7,@subscale_id + 1,4,4,NULL,NULL),
+('Frequency ','',@question_id + 7,@subscale_id + 1,4,4,NULL,NULL),
 
 -- EPIC item 34
 ('Urinary Bother','',@question_id + 8,@subscale_id + 5,5,4,NULL,NULL),
 
 -- EPIC item 49
-('a. Urgency to have a bowel movement','',@question_id + 9,@subscale_id + 2,4,4,NULL,NULL),
+('Urgency','',@question_id + 9,@subscale_id + 2,4,4,NULL,NULL),
 -- EPIC item 50
-('b. Increased frequency of bowel movements','',@question_id + 10,@subscale_id + 2,4,4,NULL,NULL),
+('Frequency','',@question_id + 10,@subscale_id + 2,4,4,NULL,NULL),
 -- EPIC item 52
-('c. Losing control of your stools','',@question_id + 11,@subscale_id + 2,4,4,NULL,NULL),
+('Control','',@question_id + 11,@subscale_id + 2,4,4,NULL,NULL),
 -- EPIC item 53
-('d. Blood stools','',@question_id + 12,@subscale_id + 2,4,4,NULL,NULL),
+('Blood','',@question_id + 12,@subscale_id + 2,4,4,NULL,NULL),
 -- EPIC item 54
-('e. Abdominal / Pelvic / Rectal Pain','',@question_id + 13,@subscale_id + 2,4,4,NULL,NULL),
+('Abd/pelvic/rectal pain','',@question_id + 13,@subscale_id + 2,4,4,NULL,NULL),
 
 -- EPIC item 55 ---
 ('Bowel Bother','',@question_id + 14,@subscale_id + 6,5,4,NULL,NULL),
 
 -- EPIC item 55
-('7. Overall, how big a problem have your bowel habits been for you <strong>during the past 4 weeks</strong>?','',@question_id + 14,@subscale_id + 2,5,4,NULL,NULL),
+('Overall bowel','',@question_id + 14,@subscale_id + 2,5,4,NULL,NULL),
 
 -- EPIC item 57
-('a. Your ability to have an erection?','',@question_id + 15,@subscale_id + 3,1,4,NULL,NULL),
+('Erectile ability','',@question_id + 15,@subscale_id + 3,1,4,NULL,NULL),
 -- EPIC item 58
-('b. Your ability to reach orgasm (climax)?','',@question_id + 16,@subscale_id + 3,1,4,NULL,NULL),
+('Orgasm ability','',@question_id + 16,@subscale_id + 3,1,4,NULL,NULL),
 -- EPIC item 59
-('9. How would you describe the usual QUALITY of your erections <strong>during the last 4 weeks</strong>?','',@question_id + 17,@subscale_id + 3,1,3,NULL,NULL),
+('Erections quality','',@question_id + 17,@subscale_id + 3,1,3,NULL,NULL),
 -- EPIC item 60
-('10. How would you describe the FREQUENCY of your erections <strong>during the last 4 weeks</strong>?','',@question_id + 18,@subscale_id + 3,1,4,NULL,NULL),
+('Erections when I want','',@question_id + 18,@subscale_id + 3,1,4,NULL,NULL),
 -- EPIC item 64
-('11. Overall, how would you rate your ability to function sexually <strong>during the last 4 weeks</strong>?','',@question_id + 19,@subscale_id + 3,1,4,NULL,NULL),
+('Overall sexual ability','',@question_id + 19,@subscale_id + 3,1,4,NULL,NULL),
 -- EPIC item 68
-('12. Overall, how big a problem has your sexual function or lack of sexual function been for you <strong>during the last 4 weeks</strong>?','',@question_id + 20,@subscale_id + 3,5,4,NULL,NULL),
+('Overall sexual problem','',@question_id + 20,@subscale_id + 3,5,4,NULL,NULL),
 
 -- EPIC item 68
 ('Sexual Bother','',@question_id + 20,@subscale_id + 7,5,4,NULL,NULL),
 
 -- EPIC item 74
-('a. Hot flashes','',@question_id + 21,@subscale_id + 4,4,4,NULL,NULL),
+('Hot flashes','',@question_id + 21,@subscale_id + 4,4,4,NULL,NULL),
 -- EPIC item 75
-('b. Breast tenderness / enlargement','',@question_id + 22,@subscale_id + 4,4,4,NULL,NULL),
+('Breasts tender/larger','',@question_id + 22,@subscale_id + 4,4,4,NULL,NULL),
 -- EPIC item 77
-('c. Feeling depressed','',@question_id + 23,@subscale_id + 4,4,4,NULL,NULL),
+('Feeling depressed','',@question_id + 23,@subscale_id + 4,4,4,NULL,NULL),
 -- EPIC item 78
-('d. Lack of energy','',@question_id + 24,@subscale_id + 4,4,4,NULL,NULL),
+('Energy','',@question_id + 24,@subscale_id + 4,4,4,NULL,NULL),
 -- EPIC item 79
-('e. Change in body weight','',@question_id + 25,@subscale_id + 4,4,4,NULL,NULL),
+('Weight change','',@question_id + 25,@subscale_id + 4,4,4,NULL,NULL),
 
 -- from original p3p id subscale_id=55
 ('Sexual','Síntomas sexuales',@question_id + 20,@subscale_id + 8,5,4,NULL,2),
