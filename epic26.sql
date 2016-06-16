@@ -230,69 +230,69 @@ SELECT LAST_INSERT_ID() INTO @subscale_id;
 
 INSERT INTO `items` (`name`, `name_es_MX`, `question_id`, `subscale_id`, `base`, `range`, `critical`, `sequence`) VALUES
 -- EPIC item 23
-('Frequency','',@question_id,@subscale_id,1,4,NULL,NULL),
+('Frequency','',@question_id,@subscale_id,1,4,3,NULL),
 -- EPIC item 26
-('Dribbling','',@question_id + 1,@subscale_id,1,3,NULL,NULL),
+('Dribbling','',@question_id + 1,@subscale_id,1,3,2,NULL),
 -- EPIC item 27
-('Pad use','',@question_id + 2,@subscale_id,3,3,NULL,NULL),
+('Pad use','',@question_id + 2,@subscale_id,3,3,2,NULL),
 -- EPIC item 28
-('Leaking ','',@question_id + 3,@subscale_id,4,4,NULL,NULL),
+('Leaking ','',@question_id + 3,@subscale_id,4,4,3,NULL),
 
 -- EPIC item 29
-('Pain/burning','',@question_id + 4,@subscale_id + 1,4,4,NULL,NULL),
+('Pain/burning','',@question_id + 4,@subscale_id + 1,4,4,3,NULL),
 -- EPIC item 30
-('Bleeding ','',@question_id + 5,@subscale_id + 1,4,4,NULL,NULL),
+('Bleeding ','',@question_id + 5,@subscale_id + 1,4,4,3,NULL),
 -- EPIC item 31
-('Stream','',@question_id + 6,@subscale_id + 1,4,4,NULL,NULL),
+('Stream','',@question_id + 6,@subscale_id + 1,4,4,3,NULL),
 -- EPIC item 33
-('Frequency ','',@question_id + 7,@subscale_id + 1,4,4,NULL,NULL),
+('Frequency ','',@question_id + 7,@subscale_id + 1,4,4,3,NULL),
 
 -- EPIC item 34
 ('Urinary Bother','',@question_id + 8,@subscale_id + 5,5,4,NULL,NULL),
 
 -- EPIC item 49
-('Urgency','',@question_id + 9,@subscale_id + 2,4,4,NULL,NULL),
+('Urgency','',@question_id + 9,@subscale_id + 2,4,4,3,NULL),
 -- EPIC item 50
-('Frequency','',@question_id + 10,@subscale_id + 2,4,4,NULL,NULL),
+('Frequency','',@question_id + 10,@subscale_id + 2,4,4,3,NULL),
 -- EPIC item 52
-('Control','',@question_id + 11,@subscale_id + 2,4,4,NULL,NULL),
+('Control','',@question_id + 11,@subscale_id + 2,4,4,3,NULL),
 -- EPIC item 53
-('Blood','',@question_id + 12,@subscale_id + 2,4,4,NULL,NULL),
+('Blood','',@question_id + 12,@subscale_id + 2,4,4,3,NULL),
 -- EPIC item 54
-('Abd/pelvic/rectal pain','',@question_id + 13,@subscale_id + 2,4,4,NULL,NULL),
+('Abd/pelvic/rectal pain','',@question_id + 13,@subscale_id + 2,4,4,3,NULL),
 
 -- EPIC item 55 ---
 ('Bowel Bother','',@question_id + 14,@subscale_id + 6,5,4,NULL,NULL),
 
 -- EPIC item 55
-('Overall bowel','',@question_id + 14,@subscale_id + 2,5,4,NULL,NULL),
+('Overall bowel','',@question_id + 14,@subscale_id + 2,5,4,4,NULL),
 
 -- EPIC item 57
-('Erectile ability','',@question_id + 15,@subscale_id + 3,1,4,NULL,NULL),
+('Erectile ability','',@question_id + 15,@subscale_id + 3,1,4,2,NULL),
 -- EPIC item 58
-('Orgasm ability','',@question_id + 16,@subscale_id + 3,1,4,NULL,NULL),
+('Orgasm ability','',@question_id + 16,@subscale_id + 3,1,4,2,NULL),
 -- EPIC item 59
-('Erections quality','',@question_id + 17,@subscale_id + 3,1,3,NULL,NULL),
+('Erections quality','',@question_id + 17,@subscale_id + 3,1,3,2,NULL),
 -- EPIC item 60
-('Erections when I want','',@question_id + 18,@subscale_id + 3,1,4,NULL,NULL),
+('Erections when I want','',@question_id + 18,@subscale_id + 3,1,4,2,NULL),
 -- EPIC item 64
-('Overall sexual ability','',@question_id + 19,@subscale_id + 3,1,4,NULL,NULL),
+('Overall sexual ability','',@question_id + 19,@subscale_id + 3,1,4,2,NULL),
 -- EPIC item 68
-('Overall sexual problem','',@question_id + 20,@subscale_id + 3,5,4,NULL,NULL),
+('Overall sexual problem','',@question_id + 20,@subscale_id + 3,5,4,4,NULL),
 
 -- EPIC item 68
 ('Sexual Bother','',@question_id + 20,@subscale_id + 7,5,4,NULL,NULL),
 
 -- EPIC item 74
-('Hot flashes','',@question_id + 21,@subscale_id + 4,4,4,NULL,NULL),
+('Hot flashes','',@question_id + 21,@subscale_id + 4,4,4,3,NULL),
 -- EPIC item 75
-('Breasts tender/larger','',@question_id + 22,@subscale_id + 4,4,4,NULL,NULL),
+('Breasts tender/larger','',@question_id + 22,@subscale_id + 4,4,4,3,NULL),
 -- EPIC item 77
-('Feeling depressed','',@question_id + 23,@subscale_id + 4,4,4,NULL,NULL),
+('Feeling depressed','',@question_id + 23,@subscale_id + 4,4,4,3,NULL),
 -- EPIC item 78
-('Energy','',@question_id + 24,@subscale_id + 4,4,4,NULL,NULL),
+('Energy','',@question_id + 24,@subscale_id + 4,4,4,3,NULL),
 -- EPIC item 79
-('Weight change','',@question_id + 25,@subscale_id + 4,4,4,NULL,NULL),
+('Weight change','',@question_id + 25,@subscale_id + 4,4,4,3,NULL),
 
 -- from original p3p id subscale_id=55
 ('Sexual','Síntomas sexuales',@question_id + 20,@subscale_id + 8,5,4,NULL,2),
