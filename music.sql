@@ -63,6 +63,7 @@ INSERT INTO `options` (`question_id`, `OptionType`, `Height`, `Width`, `MaxChara
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'Lack of a willing partner',NULL,'visible',NULL,5),
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'Lack of interest',NULL,'visible',NULL,10),
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'Lack of confidence',NULL,'visible',NULL,15),
+(@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'No erection',NULL,'visible',NULL,17),
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'No ejaculate',NULL,'visible',NULL,20),
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'Urine leak during intercourse',NULL,'visible','Urine leak',25),
 (@question_id + 5,'checkbox',0,0,NULL,NULL,NULL,'Pain/discomfort during intercourse',NULL,'visible','Pain/discomfort',30),
